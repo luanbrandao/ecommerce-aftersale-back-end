@@ -1,10 +1,20 @@
-import { CreateUserService } from './CreateUserService';
+import CreateUserService from './CreateUserService';
+import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 
+let fakeUsersRepository: FakeUsersRepository;
 let createUser: CreateUserService;
+
+const makeFakeRequest = () => ({
+  name: 'valid_name',
+  email: 'valid_email@mail.com',
+  password: 'valid_password',
+});
 
 describe('CreateUserService', () => {
   beforeEach(() => {
-    createUser = new CreateUserService();
+    fakeUsersRepository = new FakeUsersRepository();
+
+    createUser = new CreateUserService(fakeUsersRepository);
   });
 
   it('should be able to create a new user', async () => {
@@ -15,5 +25,11 @@ describe('CreateUserService', () => {
     });
 
     expect(user).toHaveProperty('id');
+  });
+
+  test('Should call execute with correct values', async () => {
+    const isValidParams = jest.spyOn(createUser, 'execute');
+    await createUser.execute(makeFakeRequest());
+    expect(isValidParams).toHaveBeenCalledWith(makeFakeRequest());
   });
 });
