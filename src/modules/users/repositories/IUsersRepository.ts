@@ -6,4 +6,5 @@ export default interface IUsersRepository {
     email: string;
     password: string;
   }): Promise<User>;
+  findByEmail(emal: string): Promise<User | undefined>;
 }
