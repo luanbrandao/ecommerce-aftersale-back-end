@@ -1,3 +1,5 @@
+import User from '../infra/typeorm/entities/User';
+
 interface IRequest {
   name: string;
   email: string;
@@ -5,12 +7,14 @@ interface IRequest {
 }
 
 export class CreateUserService {
-  execute({ name, email, password }: IRequest): any {
-    return {
-      name,
-      email,
-      password,
-      id: 'any_id',
-    };
+  async execute({ name, email, password }: IRequest): Promise<User> {
+    return new Promise(resolve =>
+      resolve({
+        id: 'any_id',
+        name,
+        email,
+        password,
+      } as User),
+    );
   }
 }
