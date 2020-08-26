@@ -1,6 +1,15 @@
+interface IRequest {
+  name: string;
+  email: string;
+  password: string;
+}
+
 export class CreateUserService {
-  execute({ _name, _email, _password }: any): any {
+  execute({ name, email, password }: IRequest): any {
     return {
+      name,
+      email,
+      password,
       id: 'any_id',
     };
   }
