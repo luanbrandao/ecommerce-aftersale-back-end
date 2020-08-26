@@ -1,10 +1,11 @@
 import CreateUserService from './CreateUserService';
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
+import ICreateUserDTO from '../dtos/ICreateUserDTO';
 
 let fakeUsersRepository: FakeUsersRepository;
 let createUser: CreateUserService;
 
-const makeFakeRequest = () => ({
+const makeFakeRequest = (): ICreateUserDTO => ({
   name: 'valid_name',
   email: 'valid_email@mail.com',
   password: 'valid_password',
@@ -18,11 +19,7 @@ describe('CreateUserService', () => {
   });
 
   it('should be able to create a new user', async () => {
-    const user = await createUser.execute({
-      name: 'any_name',
-      email: 'any_email@gmail.com',
-      password: 'any_password',
-    });
+    const user = await createUser.execute(makeFakeRequest());
 
     expect(user).toHaveProperty('id');
   });
