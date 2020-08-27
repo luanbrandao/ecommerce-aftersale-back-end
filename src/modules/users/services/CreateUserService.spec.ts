@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { EmailInUseError } from '@shared/errors/EmailInUseError';
 import CreateUserService from './CreateUserService';
 import ICreateUserDTO from '../dtos/ICreateUserDTO';

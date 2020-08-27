@@ -6,6 +6,8 @@ import '../typeorm';
 import { errors } from 'celebrate';
 import AppError from '../../errors/AppError';
 import routes from './routes';
+// dependency injection
+import '../../container';
 
 const app = express();
 

@@ -1,4 +1,5 @@
 import Service from '@shared/protocols/service';
+import { injectable, inject } from 'tsyringe';
 import { EmailInUseError } from '../../../shared/errors/EmailInUseError';
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
@@ -10,9 +11,13 @@ interface IRequest {
   password: string;
 }
 
+@injectable()
 export default class CreateUserService implements Service<IRequest, User> {
   constructor(
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
+
+    @inject('HashProvider')
     private iHashProvider: IHashProvider,
   ) {}
 
