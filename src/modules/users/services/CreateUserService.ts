@@ -1,5 +1,5 @@
 import Service from '@shared/infra/protocols/service';
-import { EmailInUseError } from '../../../shared/errors/email-in-use-error';
+import { EmailInUseError } from '../../../shared/errors/EmailInUseError';
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';

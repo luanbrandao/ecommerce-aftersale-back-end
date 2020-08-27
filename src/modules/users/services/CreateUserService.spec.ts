@@ -1,4 +1,4 @@
-import { EmailInUseError } from '@shared/errors/email-in-use-error';
+import { EmailInUseError } from '@shared/errors/EmailInUseError';
 import CreateUserService from './CreateUserService';
 import ICreateUserDTO from '../dtos/ICreateUserDTO';
 
