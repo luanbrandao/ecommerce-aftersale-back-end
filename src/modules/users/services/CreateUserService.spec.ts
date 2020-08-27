@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/AppError';
+import { EmailInUseError } from '@shared/errors/email-in-use-error';
 import CreateUserService from './CreateUserService';
 import ICreateUserDTO from '../dtos/ICreateUserDTO';
 
@@ -56,6 +56,6 @@ describe('CreateUserService', () => {
         email: 'duplicate_email@gmail.com',
         password: 'any_password',
       }),
-    ).rejects.toBeInstanceOf(AppError);
+    ).rejects.toBeInstanceOf(EmailInUseError);
   });
 });
