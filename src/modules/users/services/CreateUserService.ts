@@ -1,4 +1,4 @@
-import Service from '@shared/infra/protocols/service';
+import Service from '@shared/protocols/service';
 import { EmailInUseError } from '../../../shared/errors/EmailInUseError';
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
