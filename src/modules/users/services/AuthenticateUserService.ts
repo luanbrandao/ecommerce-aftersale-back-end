@@ -1,6 +1,7 @@
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
+import AppError from '../../../shared/errors/AppError';
 
 interface IRequest {
   email: string;
@@ -20,6 +21,12 @@ class AuthenticateUserService {
   ) {}
 
   public async execute({ email, password }: IRequest): Promise<IResponse> {
+    const user = await this.usersRepository.findByEmail(email);
+
+    if (!user) {
+      throw new AppError('Incorrect email/password combination.', 401);
+    }
+
     return new Promise(resolve =>
       resolve({ user: { email, password } as User, token: 'asdfasf' }),
     );
