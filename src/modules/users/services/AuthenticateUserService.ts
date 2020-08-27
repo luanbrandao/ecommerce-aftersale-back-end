@@ -1,7 +1,9 @@
+import { sign } from 'jsonwebtoken';
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 import AppError from '../../../shared/errors/AppError';
+import authConfig from '../../../config/auth';
 
 interface IRequest {
   email: string;
@@ -36,9 +38,17 @@ class AuthenticateUserService {
       throw new AppError('Incorrect email/password combination.', 401);
     }
 
-    return new Promise(resolve =>
-      resolve({ user: { email, password } as User, token: 'asdfasf' }),
-    );
+    const { secret, expiresIn } = authConfig.jwt;
+
+    const token = sign({}, secret, {
+      subject: user.id,
+      expiresIn,
+    });
+
+    return {
+      user,
+      token,
+    };
   }
 }
 
