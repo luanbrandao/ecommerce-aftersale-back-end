@@ -1,10 +1,26 @@
 import { Request, Response } from 'express';
+import AuthenticateUserService from '../../../services/AuthenticateUserService';
+import IUsersRepository from '../../typeorm/repositories/UsersRepository';
+import HashProvider from '../../../providers/HashProvider/implementations/BCryptHashProvider';
 
 export default class SessionsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { email, password } = request.body;
 
-    // delete user.password;
-    return response.json({ email, password });
+    const usersRepository = new IUsersRepository();
+
+    const iHashProvider = new HashProvider();
+
+    const authentucate = new AuthenticateUserService(
+      usersRepository,
+      iHashProvider,
+    );
+
+    const { user, token } = await authentucate.execute({
+      email,
+      password,
+    });
+
+    return response.json({ user, token });
   }
 }
