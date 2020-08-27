@@ -1,3 +1,4 @@
+import AppError from '@shared/errors/AppError';
 import CreateUserService from './CreateUserService';
 import ICreateUserDTO from '../dtos/ICreateUserDTO';
 
@@ -40,5 +41,21 @@ describe('CreateUserService', () => {
     const request = makeFakeRequest();
     await createUser.execute(request);
     expect(encryptSpy).toHaveBeenCalledWith(request.password);
+  });
+
+  it('should not be able to create a new user with same email from another', async () => {
+    await createUser.execute({
+      name: 'any_name',
+      email: 'duplicate_email@gmail.com',
+      password: 'any_password',
+    });
+
+    await expect(
+      createUser.execute({
+        name: 'any_name',
+        email: 'duplicate_email@gmail.com',
+        password: 'any_password',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
