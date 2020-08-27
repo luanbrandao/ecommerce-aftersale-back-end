@@ -8,11 +8,15 @@ import AppError from '../../errors/AppError';
 import routes from './routes';
 // dependency injection
 import '../../container';
+// doc swagger
+import setupSwagger from '../../../config/config-swagger';
 
 const app = express();
 
 app.use(express.json());
 app.use(routes);
+
+setupSwagger(app);
 
 app.post('/test', (requesnt, response) => {
   return response.json({ user: 'user' });
