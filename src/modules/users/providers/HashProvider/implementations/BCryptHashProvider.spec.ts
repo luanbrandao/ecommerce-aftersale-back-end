@@ -34,5 +34,17 @@ describe('BCryptHashProvider', () => {
       const hash = await sut.generateHash(playload);
       expect(hash).not.toBe(playload);
     });
+
+    test('Should throw if hash throws', async () => {
+      const sut = makeSut();
+      jest
+        .spyOn(bcrypt, 'hash')
+        .mockReturnValueOnce(
+          new Promise((resolve, reject) => reject(new Error())),
+        );
+
+      const promise = sut.generateHash('any_value');
+      await expect(promise).rejects.toThrow();
+    });
   });
 });
