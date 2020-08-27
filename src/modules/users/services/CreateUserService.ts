@@ -1,4 +1,4 @@
-import Service from '@shared/protocols/service';
+import Service from '@shared/protocols/Service';
 import { injectable, inject } from 'tsyringe';
 import { EmailInUseError } from '../../../shared/errors/EmailInUseError';
 import User from '../infra/typeorm/entities/User';
