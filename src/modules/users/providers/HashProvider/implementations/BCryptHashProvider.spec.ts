@@ -20,12 +20,19 @@ const makeSut = (): BcryptAdapter => {
 const salt = 8;
 
 describe('BCryptHashProvider', () => {
-  describe('hash()', () => {
+  describe('generateHash()', () => {
     test('Should call generateHash with correct values', async () => {
       const sut = makeSut();
       const hashSpy = jest.spyOn(bcrypt, 'hash');
       await sut.generateHash('any_value');
       expect(hashSpy).toHaveBeenCalledWith('any_value', salt);
+    });
+
+    test('Should return a valid generateHash on hash success', async () => {
+      const sut = makeSut();
+      const playload = 'any_value';
+      const hash = await sut.generateHash(playload);
+      expect(hash).not.toBe(playload);
     });
   });
 });
