@@ -1,3 +1,6 @@
+import paths from './paths';
+import schemas from './schemas';
+
 export default {
   openapi: '3.0.0',
   info: {
@@ -16,7 +19,7 @@ export default {
   },
   servers: [
     {
-      url: '/api',
+      url: '/',
       description: 'Servidor Principal',
     },
   ],
@@ -26,4 +29,6 @@ export default {
       description: 'APIs relacionadas ao usuário',
     },
   ],
+  paths,
+  schemas,
 };
