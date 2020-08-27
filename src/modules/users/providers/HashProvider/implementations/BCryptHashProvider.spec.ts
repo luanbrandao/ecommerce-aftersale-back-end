@@ -55,5 +55,11 @@ describe('BCryptHashProvider', () => {
       await sut.compareHash('any_value', 'any_hash');
       expect(compareSpy).toHaveBeenCalledWith('any_value', 'any_hash');
     });
+
+    test('Should return true when compareHash succeeds', async () => {
+      const sut = makeSut();
+      const isValid = await sut.compareHash('any_value', 'any_hash');
+      expect(isValid).toBe(true);
+    });
   });
 });
