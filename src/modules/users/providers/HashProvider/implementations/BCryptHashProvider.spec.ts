@@ -61,5 +61,12 @@ describe('BCryptHashProvider', () => {
       const isValid = await sut.compareHash('any_value', 'any_hash');
       expect(isValid).toBe(true);
     });
+
+    test('Should return false when compareHash fails', async () => {
+      const sut = makeSut();
+      jest.spyOn(bcrypt, 'compare').mockResolvedValueOnce(false);
+      const isValid = await sut.compareHash('any_value', 'any_hash');
+      expect(isValid).toBe(false);
+    });
   });
 });
