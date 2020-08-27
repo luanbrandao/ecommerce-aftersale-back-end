@@ -1,5 +1,5 @@
 import Service from '@shared/infra/protocols/service';
-import AppError from '../../../shared/errors/AppError';
+import { EmailInUseError } from '../../../shared/errors/email-in-use-error';
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
@@ -20,7 +20,7 @@ export default class CreateUserService implements Service<IRequest, User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
     if (checkUserExists) {
-      throw new AppError('Email address alredy used.');
+      throw new EmailInUseError();
     }
 
     const hashedPassword = await this.iHashProvider.generateHash(password);
