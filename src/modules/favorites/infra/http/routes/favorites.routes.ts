@@ -1,9 +1,8 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+import FavoritesController from '../controllers/FavoritesController';
 
 const sessionsRouter = Router();
-
-sessionsRouter.post('/', (request: Request, response: Response) => {
-  return response.json({ message: 'favorites' });
-});
+const favoritesController = new FavoritesController();
+sessionsRouter.post('/', favoritesController.findAll);
 
 export default sessionsRouter;

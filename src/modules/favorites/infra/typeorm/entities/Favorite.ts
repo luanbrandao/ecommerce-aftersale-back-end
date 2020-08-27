@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 
 // KISS - Keep It Simple & Stupid
-import User from '@modules/users/infra/typeorm/entities/User';
+import User from '../../../../users/infra/typeorm/entities/User';
 
 @Entity('favorites')
 class Favorite {
