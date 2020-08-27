@@ -1,3 +1,4 @@
+import Service from '@shared/infra/protocols/service';
 import AppError from '../../../shared/errors/AppError';
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
@@ -9,7 +10,7 @@ interface IRequest {
   password: string;
 }
 
-export default class CreateUserService {
+export default class CreateUserService implements Service<IRequest, User> {
   constructor(
     private usersRepository: IUsersRepository,
     private iHashProvider: IHashProvider,
