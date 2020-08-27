@@ -27,6 +27,15 @@ class AuthenticateUserService {
       throw new AppError('Incorrect email/password combination.', 401);
     }
 
+    const passwordMatched = await this.iHashProvider.compareHash(
+      password,
+      user.password,
+    );
+
+    if (!passwordMatched) {
+      throw new AppError('Incorrect email/password combination.', 401);
+    }
+
     return new Promise(resolve =>
       resolve({ user: { email, password } as User, token: 'asdfasf' }),
     );

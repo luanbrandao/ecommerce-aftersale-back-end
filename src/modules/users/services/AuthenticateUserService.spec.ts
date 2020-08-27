@@ -42,4 +42,19 @@ describe('AuthenticateUser', () => {
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
+
+  it('should not be able to authenticate with wrong password', async () => {
+    await fakeUsersRepository.create({
+      name: 'jhon',
+      email: 'jhon@gmail.com',
+      password: 'asdfasdf',
+    });
+
+    await expect(
+      authenticateUser.execute({
+        email: 'jhon@gmail.com',
+        password: 'wrong-password',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });
