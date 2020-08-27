@@ -17,13 +17,12 @@ export default class CreateUserService {
       throw Error('Email address alredy used.');
     }
 
-    return new Promise(resolve =>
-      resolve({
-        id: 'any_id',
-        name,
-        email,
-        password,
-      } as User),
-    );
+    const user = this.usersRepository.create({
+      name,
+      email,
+      password,
+    });
+
+    return user;
   }
 }
