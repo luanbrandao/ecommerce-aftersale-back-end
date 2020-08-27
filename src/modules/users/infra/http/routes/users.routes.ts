@@ -6,25 +6,18 @@ import BCryptHashProvider from '../../../providers/HashProvider/implementations/
 const userRouter = Router();
 
 userRouter.post('/', async (request, response) => {
-  try {
-    const { name, email, password } = request.body;
+  const { name, email, password } = request.body;
 
-    const usersRepository = new UsersRepository();
-    const bCryptHashProvider = new BCryptHashProvider();
-    const createUser = new CreateUserService(
-      usersRepository,
-      bCryptHashProvider,
-    );
-    const user = await createUser.execute({
-      name,
-      email,
-      password,
-    });
+  const usersRepository = new UsersRepository();
+  const bCryptHashProvider = new BCryptHashProvider();
+  const createUser = new CreateUserService(usersRepository, bCryptHashProvider);
+  const user = await createUser.execute({
+    name,
+    email,
+    password,
+  });
 
-    return response.json(user);
-  } catch (error) {
-    return response.status(400).json({ error: error.message });
-  }
+  return response.json(user);
 });
 
 export default userRouter;
