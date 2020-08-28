@@ -29,6 +29,11 @@ export default {
       name: 'User',
       description: 'APIs relacionadas ao usuário',
     },
+    {
+      name: 'Favorites',
+      description:
+        'APIs relacionadas aos produtos salvos do usuário, ** Precisa passar o AUTHORIZE no formato -> Bearer token_do_usuario **',
+    },
   ],
   paths,
   schemas,
