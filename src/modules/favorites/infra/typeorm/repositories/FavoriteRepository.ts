@@ -1,7 +1,7 @@
 import { getRepository, Repository } from 'typeorm';
 
 import Favorite from '../entities/Favorite';
-import IFavoritesRepository from '../../../repositoris/IFavoritesRepository';
+import IFavoritesRepository from '../../../repositories/IFavoritesRepository';
 
 class FavoriteRepository implements IFavoritesRepository {
   private ormRepository: Repository<Favorite>;
@@ -10,8 +10,13 @@ class FavoriteRepository implements IFavoritesRepository {
     this.ormRepository = getRepository(Favorite);
   }
 
-  async findAll(): Promise<any> {
-    const favorites = await this.ormRepository.find();
+  async findAll(user_id: string): Promise<any> {
+    const favorites = await this.ormRepository.find({
+      where: {
+        user_id,
+      },
+    });
+
     return favorites;
   }
 }
