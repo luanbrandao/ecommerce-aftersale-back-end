@@ -8,7 +8,7 @@
 4. ✅ Valida que o campo **email** é um e-mail válido
 5. ✅ **Valida** se já existe um usuário com o email fornecido
 6. ✅ Gera uma senha **criptografada**
-7. ✅ **Cria** uma conta para o usuário com os dados informados, **substituindo** a senha pela senha criptorafada
+7. ✅ **Cria** uma conta para o usuário com os dados informados, **substituindo** a senha pela senha criptografada
 8. ✅ Retorna **200** 
 
 > ## Exceções

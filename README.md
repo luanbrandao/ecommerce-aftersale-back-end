@@ -24,7 +24,7 @@
 :large_orange_diamond: Swagger
 :large_orange_diamond: Docker
 
-## Banco Dedos
+## Banco Dados
 :paperclip: PostgreSQL
 
 
@@ -32,7 +32,7 @@
 
 1. :heavy_check_mark: [Criar Usuário](./requirements/create-user.md)
 2. :heavy_check_mark: [Autenticação Usuário](./requirements/session-user.md)
-3. :heavy_check_mark: [Adiconar Produto Favorito](./requirements/add-favorite-product.md)
+3. :heavy_check_mark: [Adicionar Produto Favorito](./requirements/add-favorite-product.md)
 4. :heavy_check_mark: [Remover Produto Favorito](./requirements/remove-favorite-product.md)
 5. :heavy_check_mark: [Listar Produtos Favoritos](./requirements/list-favorite-products.md)
 6. :x: [Enviar email após remover produto favorito]('')
@@ -98,11 +98,11 @@
 
 ```
 
-## :ballot_box_with_check: Execucanto o projeto
-!!! Para executar os comandos abaixo é priciso ter o docker instalado, caso tenho o postgres instalado pode pular esses passos.
+## :ballot_box_with_check: Executando o projeto
+!!! Para executar os comandos abaixo é preciso ter o docker instalado, caso tenha o postgres instalado pode pular esses passos.
 </br>
 :heavy_check_mark: Criando container do banco postgres no docker
- escolhi a porta 5433, você pode optar por outra
+ escolher a porta 5433, você pode optar por outra
 <br>
 
 ``` docker run --name postgres -e POSTGRES_PASSWORD=SUA_SENHA -p 5433:5432 -d postgres:11 ```

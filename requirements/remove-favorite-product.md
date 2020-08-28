@@ -5,7 +5,7 @@
 1. ✅ Recebe uma requisição do tipo **DELETE** na rota **/favorites**
 2. ✅ Valida se o usuário está autenticado.
 3. ✅ Valida se o parametro **favorite_id** e passado
-4. ✅ Rerifica se o produto pertence ao usuário
+4. ✅ Verifica se o produto pertence ao usuário
 4. ✅ **Deletar** produto favorito
 5. ✅ Retorna **201**
 
