@@ -42,13 +42,10 @@ class FavoriteRepository implements IFavoritesRepository {
 
   async findById(
     user_id: string,
-    product_id: string,
+    favorite_id: string,
   ): Promise<Favorite | undefined> {
     const favorite = await this.ormRepository.findOne({
-      where: {
-        user_id,
-        product_id,
-      },
+      where: { id: favorite_id, user_id },
     });
 
     return favorite;
