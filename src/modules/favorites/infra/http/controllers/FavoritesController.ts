@@ -3,7 +3,6 @@ import { container } from 'tsyringe';
 import FindAllFavoritesService from '../../../services/FindAllFavoritesService';
 import CreateFavoriteService from '../../../services/CreateFavoriteService';
 import RemoveFavoriteService from '../../../services/RemoveFavoriteService';
-import FavoriteRepository from '../../typeorm/repositories/FavoriteRepository';
 
 export default class FavoritesController {
   public async findAll(
@@ -33,10 +32,7 @@ export default class FavoritesController {
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
-    const favoritesRepository = new FavoriteRepository();
-    const removeFavoriteService = new RemoveFavoriteService(
-      favoritesRepository,
-    );
+    const removeFavoriteService = container.resolve(RemoveFavoriteService);
 
     const { favorite_id } = request.params;
 
