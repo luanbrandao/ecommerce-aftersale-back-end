@@ -1,8 +1,12 @@
 import { Router } from 'express';
 import FavoritesController from '../controllers/FavoritesController';
+import ensureAuthenticated from '../../../../users/infra/http/middlewares/ensureAuthenticated';
 
-const sessionsRouter = Router();
+const favoriteRouter = Router();
 const favoritesController = new FavoritesController();
-sessionsRouter.post('/', favoritesController.findAll);
 
-export default sessionsRouter;
+favoriteRouter.use(ensureAuthenticated);
+
+favoriteRouter.post('/', favoritesController.findAll);
+
+export default favoriteRouter;
