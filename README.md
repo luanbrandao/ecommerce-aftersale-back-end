@@ -129,7 +129,9 @@ Antes de executar esse comando verifique se seu banco de dados está rodando  </
 ``` yarn test:verbose ``` </br>
 ``` yarn test:staged ``` </br>
 ``` yarn test:ci ``` </br>
-
+<div align="center" , dis>
+<img width="700px" src="./img/test.png">
+</div>
 
 ## :ballot_box_with_check: Documentação 
  acesse: http://localhost:3333/api-docs/#/ 
@@ -138,3 +140,11 @@ Antes de executar esse comando verifique se seu banco de dados está rodando  </
 <div align="center" , dis>
 <img width="900px" src="./img/doc.png">
 </div>
+
+## :ballot_box_with_check: Acessando o e-mail enviado
+Após remover um produto favorito irá aparecer uma URL no terminal que está rodando o servidor. <br>
+
+<div align="center" , dis>
+<img width="700px" src="./img/email.png">
+</div>
+
