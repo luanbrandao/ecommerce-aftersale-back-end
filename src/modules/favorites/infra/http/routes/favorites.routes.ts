@@ -23,6 +23,14 @@ favoriteRouter.post(
   favoritesController.create,
 );
 
-favoriteRouter.delete('/:favorite_id', favoritesController.delete);
+favoriteRouter.delete(
+  '/:favorite_id',
+  celebrate({
+    [Segments.PARAMS]: {
+      favorite_id: Joi.string().uuid().required(),
+    },
+  }),
+  favoritesController.delete,
+);
 
 export default favoriteRouter;
