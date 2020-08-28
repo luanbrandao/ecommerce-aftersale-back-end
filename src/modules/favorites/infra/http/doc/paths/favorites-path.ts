@@ -8,7 +8,7 @@ export const findAllFavoritesPath = {
     tags: ['Favorites'],
     summary: 'API para retornar os produtos favoritos do usuário',
     description:
-      'Essa rota pode ser executada apenas por **usuários autorizados**',
+      'Essa rota pode ser executada apenas por **usuários autenticados**',
     responses: {
       200: {
         description: 'Sucesso',
