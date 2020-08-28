@@ -8,5 +8,6 @@ const favoritesController = new FavoritesController();
 favoriteRouter.use(ensureAuthenticated);
 
 favoriteRouter.get('/', favoritesController.findAll);
+favoriteRouter.post('/', favoritesController.create);
 
 export default favoriteRouter;
