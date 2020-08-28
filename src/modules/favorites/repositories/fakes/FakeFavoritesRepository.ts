@@ -13,6 +13,18 @@ class FakeFavoritesRepository implements IFavoritesRepository {
     return findAllFavorites;
   }
 
+  public async findById(
+    user_id: string,
+    product_id: string,
+  ): Promise<Favorite | undefined> {
+    const findAppointment = this.favorites.find(
+      favorite =>
+        favorite.user_id === user_id && favorite.product_id === product_id,
+    );
+
+    return findAppointment;
+  }
+
   public async create({
     product_id,
     title,

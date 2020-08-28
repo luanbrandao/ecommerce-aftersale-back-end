@@ -40,6 +40,20 @@ class FavoriteRepository implements IFavoritesRepository {
     return favorites;
   }
 
+  async findById(
+    user_id: string,
+    product_id: string,
+  ): Promise<Favorite | undefined> {
+    const favorite = await this.ormRepository.findOne({
+      where: {
+        user_id,
+        product_id,
+      },
+    });
+
+    return favorite;
+  }
+
   async remove(favoriteId: string): Promise<void> {
     await this.ormRepository.delete(favoriteId);
   }

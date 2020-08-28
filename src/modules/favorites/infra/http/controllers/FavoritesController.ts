@@ -34,9 +34,11 @@ export default class FavoritesController {
   public async delete(request: Request, response: Response): Promise<Response> {
     const removeFavoriteService = container.resolve(RemoveFavoriteService);
 
+    const user_id = request.user.id;
+
     const { favorite_id } = request.params;
 
-    await removeFavoriteService.execute(favorite_id);
+    await removeFavoriteService.execute(user_id, favorite_id);
     return response.status(201).json();
   }
 }
