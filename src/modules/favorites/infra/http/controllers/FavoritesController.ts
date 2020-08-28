@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 import FindAllFavoritesService from '../../../services/FindAllFavoritesService';
 import CreateFavoriteService from '../../../services/CreateFavoriteService';
 import RemoveFavoriteService from '../../../services/RemoveFavoriteService';
@@ -17,10 +18,7 @@ export default class FavoritesController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    const favoritesRepository = new FavoriteRepository();
-    const createFavoriteService = new CreateFavoriteService(
-      favoritesRepository,
-    );
+    const createFavoriteService = container.resolve(CreateFavoriteService);
 
     const user_id = request.user.id;
     const { product_id, title, price, image_url } = request.body;

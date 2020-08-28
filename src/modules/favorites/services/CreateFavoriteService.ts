@@ -1,3 +1,4 @@
+import { injectable, inject } from 'tsyringe';
 import IFavoritesRepository from '../repositories/IFavoritesRepository';
 import Favorite from '../infra/typeorm/entities/Favorite';
 
@@ -9,8 +10,12 @@ interface IRequest {
   user_id: string;
 }
 
+@injectable()
 class CreateFavoriteService {
-  constructor(private favoriteRepository: IFavoritesRepository) {}
+  constructor(
+    @inject('FavoritesRepository')
+    private favoriteRepository: IFavoritesRepository,
+  ) {}
 
   async execute({
     product_id,
