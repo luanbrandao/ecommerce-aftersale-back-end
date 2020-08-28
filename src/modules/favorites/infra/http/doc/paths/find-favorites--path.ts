@@ -1,5 +1,5 @@
 export const findAllFavoritesPath = {
-  post: {
+  get: {
     security: [
       {
         apiKeyAuth: [],
