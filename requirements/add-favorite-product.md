@@ -2,10 +2,11 @@
 
 > ## Caso de sucesso
 
-1. ✅ Recebe uma requisição do tipo **POST** na rota **/session**
-2. ✅ Valida dados obrigatórios **product_id** , **title** , **price** e **image_url**
-3. ✅ **Criar** novo produto favorito
-4. ✅ Retorna **200** com o novo produto favorito
+1. ✅ Recebe uma requisição do tipo **POST** na rota **/favorites**
+2. ✅ Valida se o usuário está autenticado.
+3. ✅ Valida dados obrigatórios **product_id** , **title** , **price** e **image_url**
+4. ✅ **Criar** novo produto favorito
+5. ✅ Retorna **200** com o novo produto favorito
 
 > ## Exceções
 
