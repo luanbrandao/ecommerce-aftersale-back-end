@@ -31,11 +31,11 @@
 > ## APIs funcionalidades
 
 1. :heavy_check_mark: [Criar Usuário](./requirements/create-user.md)
-2. :heavy_check_mark: [Autenticação Usuário](./requirements/signup.md)
-3. :heavy_check_mark: [Adiconar Produto Favorito](./requirements/signup.md)
-4. :heavy_check_mark: [Remover Produto Favorito](./requirements/signup.md)
-5. :heavy_check_mark: [Listar Produtos Favoritos](./requirements/signup.md)
-6. :x: [Enviar email após remover produto favorito](./requirements/signup.md)
+2. :heavy_check_mark: [Autenticação Usuário](./requirements/session-user.md)
+3. :heavy_check_mark: [Adiconar Produto Favorito](./requirements/add-favorite-product.md)
+4. :heavy_check_mark: [Remover Produto Favorito](./requirements/remove-favorite-product.md)
+5. :heavy_check_mark: [Listar Produtos Favoritos](./requirements/list-favorite-products.md)
+6. :x: [Enviar email após remover produto favorito]('')
 
 
 
