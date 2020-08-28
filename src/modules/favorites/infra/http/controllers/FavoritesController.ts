@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import FindAllFavoritesService from '../../../services/FindAllFavoritesService';
 import CreateFavoriteService from '../../../services/CreateFavoriteService';
+import RemoveFavoriteService from '../../../services/RemoveFavoriteService';
 import FavoriteRepository from '../../typeorm/repositories/FavoriteRepository';
 
 export default class FavoritesController {
@@ -32,5 +33,17 @@ export default class FavoritesController {
       user_id,
     });
     return response.json(favorites);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const favoritesRepository = new FavoriteRepository();
+    const removeFavoriteService = new RemoveFavoriteService(
+      favoritesRepository,
+    );
+
+    const { favorite_id } = request.params;
+
+    await removeFavoriteService.execute(favorite_id);
+    return response.status(201).json();
   }
 }

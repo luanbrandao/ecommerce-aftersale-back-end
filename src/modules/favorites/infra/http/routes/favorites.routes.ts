@@ -9,5 +9,6 @@ favoriteRouter.use(ensureAuthenticated);
 
 favoriteRouter.get('/', favoritesController.findAll);
 favoriteRouter.post('/', favoritesController.create);
+favoriteRouter.delete('/:favorite_id', favoritesController.delete);
 
 export default favoriteRouter;

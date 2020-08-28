@@ -39,6 +39,10 @@ class FavoriteRepository implements IFavoritesRepository {
 
     return favorites;
   }
+
+  async remove(favoriteId: string): Promise<void> {
+    await this.ormRepository.delete(favoriteId);
+  }
 }
 
 export default FavoriteRepository;
