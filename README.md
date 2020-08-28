@@ -35,7 +35,7 @@
 3. :heavy_check_mark: [Adicionar Produto Favorito](./requirements/add-favorite-product.md)
 4. :heavy_check_mark: [Remover Produto Favorito](./requirements/remove-favorite-product.md)
 5. :heavy_check_mark: [Listar Produtos Favoritos](./requirements/list-favorite-products.md)
-6. :x: [Enviar email após remover produto favorito]('./requirements/send-mail.md')
+6. :x: [Enviar email após remover produto favorito](./requirements/send-mail.md)
 
 
 
