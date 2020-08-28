@@ -1,4 +1,4 @@
-# Listagem de Produtos Favorito
+# Listagem de Produtos Favoritos
 
 > ## Caso de sucesso
 

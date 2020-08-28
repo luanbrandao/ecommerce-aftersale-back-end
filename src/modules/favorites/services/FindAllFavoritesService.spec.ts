@@ -2,7 +2,7 @@ import FakeFavoritesRepository from '../repositories/fakes/FakeFavoritesReposito
 // import AppError from '../../../shared/errors/AppError';
 import FindAllFavoritesService from './FindAllFavoritesService';
 
-describe('AuthenticateUser', () => {
+describe('FindAllFavoritesService', () => {
   let fakeFavoritesRepository: FakeFavoritesRepository;
   let findAllFavoritesService: FindAllFavoritesService;
 
