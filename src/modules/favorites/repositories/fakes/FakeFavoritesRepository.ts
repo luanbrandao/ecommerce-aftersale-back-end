@@ -1,13 +1,15 @@
 import IFavoritesRepository from '../IFavoritesRepository';
 import Favorite from '../../infra/typeorm/entities/Favorite';
 
-class FakeAppointmentsRepository implements IFavoritesRepository {
+class FakeFavoritesRepository implements IFavoritesRepository {
   private favorites: Favorite[] = [];
 
-  public async findAll(): Promise<Favorite[]> {
-    const findAllFavorites = this.favorites;
+  public async findAll(user_id: string): Promise<Favorite[]> {
+    const findAllFavorites = this.favorites.filter(favorite => {
+      return favorite.user_id === user_id;
+    });
     return findAllFavorites;
   }
 }
 
-export default FakeAppointmentsRepository;
+export default FakeFavoritesRepository;
