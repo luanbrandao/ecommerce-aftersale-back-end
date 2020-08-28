@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { classToClass } from 'class-transformer';
 import AuthenticateUserService from '../../../services/AuthenticateUserService';
 import IUsersRepository from '../../typeorm/repositories/UsersRepository';
 import HashProvider from '../../../providers/HashProvider/implementations/BCryptHashProvider';
@@ -21,6 +22,6 @@ export default class SessionsController {
       password,
     });
 
-    return response.json({ user, token });
+    return response.json({ user: classToClass(user), token });
   }
 }
