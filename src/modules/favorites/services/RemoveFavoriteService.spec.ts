@@ -1,14 +1,20 @@
 import FakeFavoritesRepository from '../repositories/fakes/FakeFavoritesRepository';
 // import AppError from '../../../shared/errors/AppError';
 import RemoveFavoriteService from './RemoveFavoriteService';
+import FakeMailProvider from '../../../shared/container/providers/MailProvider/faker/FakeMailProvider';
 
 describe('RemoveFavoriteService', () => {
   let fakeFavoritesRepository: FakeFavoritesRepository;
   let removeFavoriteService: RemoveFavoriteService;
+  let fakeMailProvider: FakeMailProvider;
 
   beforeEach(() => {
     fakeFavoritesRepository = new FakeFavoritesRepository();
-    removeFavoriteService = new RemoveFavoriteService(fakeFavoritesRepository);
+    fakeMailProvider = new FakeMailProvider();
+    removeFavoriteService = new RemoveFavoriteService(
+      fakeFavoritesRepository,
+      fakeMailProvider,
+    );
   });
 
   it('should be able to create a new favorite', async () => {
