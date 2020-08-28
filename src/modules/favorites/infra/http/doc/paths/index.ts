@@ -1,1 +1,1 @@
-export * from './find-favorites--path';
+export * from './favorites-path';
