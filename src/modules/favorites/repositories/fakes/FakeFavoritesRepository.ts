@@ -35,6 +35,17 @@ class FakeFavoritesRepository implements IFavoritesRepository {
 
     return favorite;
   }
+
+  remove(favoriteId: string): Promise<void> {
+    const removeIndex = this.favorites
+      .map(favorite => {
+        return favorite.id;
+      })
+      .indexOf(favoriteId);
+    this.favorites.splice(removeIndex, 1);
+
+    return new Promise(resolve => resolve());
+  }
 }
 
 export default FakeFavoritesRepository;

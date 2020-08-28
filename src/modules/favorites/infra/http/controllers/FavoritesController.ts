@@ -10,8 +10,7 @@ export default class FavoritesController {
     request: Request,
     response: Response,
   ): Promise<Response> {
-    const favoritesRepository = new FavoriteRepository();
-    const findAllController = new FindAllFavoritesService(favoritesRepository);
+    const findAllController = container.resolve(FindAllFavoritesService);
 
     const favorites = await findAllController.execute(request.user.id);
     return response.json(favorites);
