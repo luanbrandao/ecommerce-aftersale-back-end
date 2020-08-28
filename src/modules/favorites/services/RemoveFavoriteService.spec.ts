@@ -24,7 +24,7 @@ describe('RemoveFavoriteService', () => {
       user_id: userId,
     });
 
-    await removeFavoriteService.execute(productId);
+    await removeFavoriteService.execute(userId, productId);
 
     const favorites = await fakeFavoritesRepository.findAll(userId);
 
