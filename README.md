@@ -86,6 +86,12 @@
 │
 ├── shared
 │   └── container
+│       └── providers
+│           └── MailProvider
+│               └── faker
+│               └── implementarions
+│               └── models
+│       └── index.ts
 │   └── docs
 │   └── errors
 │   └── infra
